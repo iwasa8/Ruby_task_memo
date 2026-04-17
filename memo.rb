@@ -11,7 +11,7 @@ if memo_type == 1
     puts "メモしたい内容を入力してください。"
     puts "完了したらcontrol＋Dを押してください"
     contents = readlines
-    CSV.open("#{titl}.cvs","a") do |csv|
+    CSV.open("#{titl}.csv","a") do |csv|
         csv << [contents]
     end
     
@@ -22,7 +22,7 @@ elsif memo_type == 2
     puts "完了したらcontrol＋Dを押してください"
     contents2 = readlines
     
-    CSV.open("#{titl2}.cvs","a+") do |csv|
+    CSV.open("#{titl2}.csv","a+") do |csv|
         csv << [contents2]
     end
 else
