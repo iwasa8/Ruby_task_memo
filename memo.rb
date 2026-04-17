@@ -18,11 +18,10 @@ if memo_type == 1
 elsif memo_type == 2
     puts "既存のファイルを開きます。拡張子を除いたファイル名を入力してください。"
     titl2 = gets.chomp
-    puts "メモを編集してください"
+    puts "メモに追加したい内容を入力してください"
     puts "完了したらcontrol＋Dを押してください"
     contents2 = readlines
     
-    require "csv"
     CSV.open("#{titl2}.cvs","a+") do |csv|
         csv << [contents2]
     end
