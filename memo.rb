@@ -1,5 +1,5 @@
 require "csv" # CSVファイルを扱うためのライブラリを読み込んでいます
-
+loop do
 puts "1 → 新規でメモを作成する / 2 → 既存のメモを編集する"
 
 memo_type = gets.to_i # ユーザーの入力値を取得し、数字へ変換しています
@@ -16,7 +16,7 @@ if memo_type == 1
             csv << [line]
         end
     end
-    
+    break
 elsif memo_type == 2
     puts "既存のファイルを開きます。拡張子を除いたファイル名を入力してください。"
     titl2 = gets.chomp
@@ -29,6 +29,9 @@ elsif memo_type == 2
             csv << [line]
         end
     end
+    break
 else
     puts "不正な値です。「１」か「２」を入力してください。"
+    next
+end
 end
