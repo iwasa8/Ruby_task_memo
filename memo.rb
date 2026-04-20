@@ -10,20 +10,24 @@ if memo_type == 1
     titl = gets.chomp
     puts "メモしたい内容を入力してください。"
     puts "完了したらcontrol＋Dを押してください"
-    contents = readlines
-    CSV.open("#{titl}.csv","a") do |csv|
-        csv << [contents]
+    contents = readlines(chomp:true)
+    CSV.open("#{titl}.csv","w") do |csv|
+        contents.each do |line|
+            csv << [line]
+        end
     end
     
 elsif memo_type == 2
     puts "既存のファイルを開きます。拡張子を除いたファイル名を入力してください。"
     titl2 = gets.chomp
-    puts "メモに追加したい内容を入力してください"
+    puts "メモを編集してください"
     puts "完了したらcontrol＋Dを押してください"
-    contents2 = readlines
+    contents2 = readlines(chomp:true)
     
     CSV.open("#{titl2}.csv","a+") do |csv|
-        csv << [contents2]
+        contents2.each do |line|
+            csv << [line]
+        end
     end
 else
     puts "不正な値です。「１」か「２」を入力してください。"
